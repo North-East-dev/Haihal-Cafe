@@ -43,22 +43,26 @@ db.ref("menu").on("value", snapshot => {
 /////////////////////////////
 
 function renderMenu() {
-
     const container = document.getElementById('menu-container');
+    if (!container) return;
     container.innerHTML = "";
 
-    const search = document.getElementById("search")?.value.toLowerCase() || "";
-    const filter = document.getElementById("filter")?.value || "all";
+    const searchInput = document.getElementById("search");
+    const filterInput = document.getElementById("filter");
+    
+    const search = searchInput ? searchInput.value.toLowerCase().trim() : "";
+    const filter = filterInput ? filterInput.value : "all";
+
+    if (!menuData || menuData.length === 0) {
+        container.innerHTML = `<div class="no-results">Menu is being loaded...</div>`;
+        return;
+    }
+
+    let resultsFound = false;
 
     menuData.forEach(category => {
-
         const section = document.createElement('div');
         section.className = "category";
-
-        // ⭐ highlight category
-        if (category.highlight) {
-            section.classList.add("highlight");
-        }
 
         const title = document.createElement('h2');
         title.textContent = category.category;
@@ -67,58 +71,63 @@ function renderMenu() {
         const itemsDiv = document.createElement('div');
         itemsDiv.className = "items";
 
-        let hasItems = false;
+        let categoryHasItems = false;
 
-        category.items.forEach(item => {
+        // ⭐ Featured items first within category
+        const sortedItems = [...category.items].sort((a, b) => {
+            const featA = normalizeFeatured(a.featured);
+            const featB = normalizeFeatured(b.featured);
+            return featB - featA;
+        });
 
-            // 🔍 search + filter
-            const nameMatch = item.name.toLowerCase().includes(search);
+        sortedItems.forEach(item => {
+            const nameMatch = item.name.toLowerCase().includes(search) || 
+                              (item.description && item.description.toLowerCase().includes(search));
             const typeMatch = (filter === "all" || item.type === filter);
 
             if (!nameMatch || !typeMatch) return;
 
-            hasItems = true;
+            categoryHasItems = true;
+            resultsFound = true;
 
-            // 💰 price
-            let priceText = item.price
-                ? `₹${item.price}`
-                : `₹${item.half} / ₹${item.full}`;
+            const isFeatured = normalizeFeatured(item.featured);
+            let priceText = item.price ? `₹${item.price}` : `₹${item.half || 0} / ₹${item.full || 0}`;
 
-            // 🔥 badges
-            let badge = "";
-
+            let badges = "";
             if (item.tags) {
-                if (item.tags.includes("signature")) {
-                    badge += `<span class="badge signature">🔥 Signature</span>`;
-                }
-                if (item.tags.includes("bestseller")) {
-                    badge += `<span class="badge bestseller">⭐ Bestseller</span>`;
-                }
+                if (item.tags.includes("signature")) badges += `<span class="badge signature">🔥 Signature</span>`;
+                if (item.tags.includes("bestseller")) badges += `<span class="badge bestseller">⭐ Bestseller</span>`;
             }
+            if (isFeatured) badges += `<span class="badge featured">⭐ Featured</span>`;
 
             const itemDiv = document.createElement('div');
-            itemDiv.className = "menu-item";
-
+            itemDiv.className = `menu-item ${isFeatured ? 'featured-item' : ''}`;
+            
             itemDiv.innerHTML = `
-                ${badge}
-
-                ${item.src ? `<img src="${item.src}">` : ""}
-
-                <h3>${item.name}</h3>
-                <p>${priceText}</p>
-
-                ${item.description ? `<p class="desc">${item.description}</p>` : ""}
+                ${badges}
+                ${item.src ? `<img src="${item.src}" loading="lazy" alt="${item.name}">` : `<div class="no-img-placeholder">🍽️</div>`}
+                <div class="item-info">
+                    <h3>${item.name}</h3>
+                    <p class="price">${priceText}</p>
+                    ${item.description ? `<p class="desc">${item.description}</p>` : ""}
+                </div>
             `;
-
             itemsDiv.appendChild(itemDiv);
         });
 
-        if (hasItems) {
+        if (categoryHasItems) {
             section.appendChild(itemsDiv);
             container.appendChild(section);
         }
-
     });
+
+    if (!resultsFound) {
+        container.innerHTML = `<div class="no-results">No items found matching your search.</div>`;
+    }
+}
+
+function normalizeFeatured(value) {
+    return value === true || value === "true" || value === 1 || value === "1";
 }
 
 /////////////////////////////

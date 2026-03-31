@@ -43,7 +43,11 @@
 
 <button onclick="addItem()">Add Item</button>
 
-<div id="dropZone">Drop Image Here</div>
+<!-- 🔥 FIXED DROP ZONE -->
+<div id="dropZone" class="item-drop-zone">
+    Drop Image Here or Click
+</div>
+
 <img id="preview" width="150">
 <button onclick="removeImage()">Remove Image</button>
 
@@ -53,15 +57,16 @@
 <div id="menu"></div>
 
 <button onclick="saveMenu()">💾 Save</button>
+<div id="saveStatus" style="margin-top:10px; font-size:12px; opacity:0.95;"></div>
 
 </div>
 
-<!-- 🔥 FIREBASE FIRST -->
+<!-- 🔥 FIREBASE -->
 <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-storage-compat.js"></script>
 
-<!-- THEN YOUR JS -->
+<!-- YOUR JS -->
 <script src="js/admin.js"></script>
 
 <script>
