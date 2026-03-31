@@ -1,16 +1,23 @@
-let qrGenerated = false;
-
 function showQR(){
-    document.getElementById("qrModal").style.display = "flex";
 
-    if(!qrGenerated){
-        new QRCode(document.getElementById("qrcode"), {
-            text: window.location.href,
-            width: 200,
-            height: 200
-        });
-        qrGenerated = true;
-    }
+    const modal = document.getElementById("qrModal");
+    const qrContainer = document.getElementById("qrcode");
+
+    modal.style.display = "flex";
+
+    // clear previous QR
+    qrContainer.innerHTML = "";
+
+    // 🔥 IMPORTANT: change this after GitHub deploy
+    const url = window.location.origin + window.location.pathname;
+
+    new QRCode(qrContainer, {
+        text: url,
+        width: 200,
+        height: 200,
+        colorDark: "#000",
+        colorLight: "#fff"
+    });
 }
 
 function closeQR(){
