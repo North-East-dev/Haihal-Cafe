@@ -1,0 +1,140 @@
+{
+  "restaurant": "Haihal Cafe",
+  "menu": [
+
+    {
+      "category": "Signature Items",
+      "highlight": true,
+      "items": [
+        {
+          "name": "Haihal Special Chicken Chowmein",
+          "price": 130,
+          "type": "non-veg",
+          "tags": ["signature"]
+        },
+        {
+          "name": "Chicken Roll",
+          "price": 90,
+          "type": "non-veg",
+          "tags": ["signature"]
+        },
+        {
+          "name": "Haihal Special Fried Rice",
+          "price": 140,
+          "type": "non-veg",
+          "tags": ["signature"]
+        }
+      ]
+    },
+
+    {
+      "category": "Biryani",
+      "items": [
+        { "name": "Chicken Biryani", "half": 120, "full": 190, "type": "non-veg" },
+        { "name": "Dum Chicken Biryani", "half": 140, "full": 210, "type": "non-veg" }
+      ]
+    },
+
+    {
+      "category": "Chowmein",
+      "items": [
+        { "name": "Veg Chowmein", "half": 60, "full": 90, "type": "veg" },
+        { "name": "Egg Chowmein", "half": 70, "full": 100, "type": "non-veg" },
+        { "name": "Chicken Chowmein", "half": 90, "full": 130, "type": "non-veg" },
+        { "name": "Special Chowmein", "half": 110, "full": 150, "type": "non-veg" }
+      ]
+    },
+
+    {
+      "category": "Fried Rice",
+      "items": [
+        { "name": "Veg Fried Rice", "half": 60, "full": 90, "type": "veg" },
+        { "name": "Egg Fried Rice", "half": 70, "full": 100, "type": "non-veg" },
+        { "name": "Chicken Fried Rice", "half": 90, "full": 130, "type": "non-veg" },
+        { "name": "Special Fried Rice", "half": 110, "full": 150, "type": "non-veg" }
+      ]
+    },
+
+    {
+      "category": "Rolls",
+      "items": [
+        { "name": "Veg Roll", "price": 60, "type": "veg" },
+        { "name": "Egg Roll", "price": 70, "type": "non-veg" },
+        { "name": "Chicken Roll", "price": 90, "type": "non-veg" },
+        { "name": "Paneer Roll", "price": 90, "type": "veg" }
+      ]
+    },
+
+    {
+      "category": "Snacks & Starters",
+      "items": [
+        { "name": "French Fries", "price": 60, "type": "veg" },
+        { "name": "Peri Peri Fries", "price": 80, "type": "veg" },
+        { "name": "Cheese Fries", "price": 100, "type": "veg" },
+        { "name": "Chicken Pakora (6 pcs)", "price": 90, "type": "non-veg" },
+        { "name": "Chicken Pakora (12 pcs)", "price": 160, "type": "non-veg" },
+        { "name": "Chicken Lollipop (4 pcs)", "price": 160, "type": "non-veg" },
+        { "name": "Veg Pakora", "price": 30, "type": "veg" },
+        { "name": "Paneer Pakora", "price": 120, "type": "veg" }
+      ]
+    },
+
+    {
+      "category": "Momos",
+      "items": [
+        { "name": "Steamed Chicken Momo (6 pcs)", "price": 60, "type": "non-veg" },
+        { "name": "Fried Chicken Momo (6 pcs)", "price": 80, "type": "non-veg" }
+      ]
+    },
+
+    {
+      "category": "Quick Bites",
+      "items": [
+        { "name": "Veg Pasta", "price": 80, "type": "veg" },
+        { "name": "Chicken Pasta", "price": 110, "type": "non-veg" }
+      ]
+    },
+
+    {
+      "category": "Beverages",
+      "highlight": true,
+      "items": [
+        { "name": "Cold Coffee", "price": 120, "type": "veg", "tags": ["high-profit"] },
+        { "name": "Chocolate Shake", "price": 140, "type": "veg", "tags": ["high-profit"] },
+        { "name": "Oreo Shake", "price": 150, "type": "veg", "tags": ["high-profit"] },
+        { "name": "Lemon Mojito", "price": 80, "type": "veg", "tags": ["high-profit"] },
+        { "name": "Hot Coffee", "price": 40, "type": "veg" },
+        { "name": "Masala Tea", "price": 20, "type": "veg" }
+      ]
+    },
+
+    {
+      "category": "Combos",
+      "highlight": true,
+      "items": [
+        {
+          "name": "Student Combo",
+          "price": 99,
+          "type": "veg",
+          "tags": ["bestseller"],
+          "includes": ["Veg Chowmein", "Fries", "Drink"]
+        },
+        {
+          "name": "Chicken Combo",
+          "price": 149,
+          "type": "non-veg",
+          "tags": ["bestseller"],
+          "includes": ["Chicken Roll", "Fries", "Drink"]
+        },
+        {
+          "name": "Biryani Combo",
+          "price": 199,
+          "type": "non-veg",
+          "tags": ["bestseller"],
+          "includes": ["Chicken Biryani", "Drink"]
+        }
+      ]
+    }
+
+  ]
+}

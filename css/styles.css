@@ -1,0 +1,483 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #1a120b;
+    color: #eee;
+}
+
+/* Header */
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: column;
+    align-items: center;      
+    text-align: center;
+    padding: 10px;
+    background: #1a120b;
+    border-bottom: 1px solid rgba(255, 196, 0, 0.693);
+}
+
+header h1 {
+    color: white;
+}
+
+nav a {
+    position: relative;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: gold;
+    text-shadow: 0 0 8px gold;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -6px;
+    width: 0%;
+    height: 2px;
+    background: linear-gradient(to right, gold, #fff, gold);
+    transition: 0.4s;
+    transform: translateX(-50%);
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+nav a:active {
+    transform: scale(0.95);
+}
+
+nav {
+    display: flex;
+    justify-content: center;   
+    gap: 80px; 
+}
+
+.divider {
+    width: 100%;
+    height: 1px;
+    background: rgba(255, 196, 0, 0.3);
+    margin: 10px auto;
+}
+
+/* Hero */
+.hero {
+    height: 70vh;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(0,0,0,0.6)),
+                url('https://imgs.search.brave.com/iXlo7jU0oBk-jcvdWOuTUgBsf5FJHC5Ph3bjcY4CFpo/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJhY2Nlc3Mu/Y29tL2Z1bGwvMzY5/MjY1NC5qcGc') center/cover no-repeat;
+    background-size: cover;
+    image-rendering: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 196, 0, 0.693);
+}
+
+.hero-content h1 {
+    font-size: 60px;
+    color: white;
+    letter-spacing: 10px;
+    margin-top: 20px;
+}
+
+.hero-content p {
+    font-size: 20px;
+    margin: 30px 0;
+}
+
+.hero-content button {
+    padding: 20px 25px;
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 30px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.hero-content button:hover {
+    background: transparent;
+    color: white;
+    box-shadow: 0 0 10px white;
+    transform: scale(1.1);
+}
+
+.hero-content button:active {
+    transform: scale(0.95);
+}
+
+/* Menu */
+.menu-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px;
+}
+
+.menu-controls input,
+.menu-controls select {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+#menu-container {
+    padding: 20px;
+}
+
+.category {
+    margin-bottom: 40px;
+}
+
+.category h2 {
+    color: gold;
+    font-size: 28px;
+    margin-bottom: 15px;
+    border-left: 4px solid gold;
+    padding-left: 10px;
+}
+
+.highlight {
+    border: 2px solid gold;
+    background: rgba(212,175,55,0.05);
+}
+
+.items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.menu-item {
+    background: linear-gradient(145deg, #111, #1a1a1a);
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid rgba(212,175,55,0.2);
+    transition: all 0.3s ease;
+}
+
+.menu-item:hover {
+    transform: translateY(-5px);
+    border-color: gold;
+}
+
+.menu-item img {
+    display: none;
+}
+
+.menu-title {
+    font-size: 60px;
+    color: gold;
+    text-align: center;
+    margin-bottom: 15px;
+    letter-spacing: 5px;
+}
+
+.menu-item h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: white;
+}
+
+.menu-item p {
+    color: gold;
+    font-weight: bold;
+}
+
+.badge {
+    display: inline-block;
+    padding: 4px 8px;
+    font-size: 12px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.signature {
+    background: gold;
+    color: black;
+}
+
+.bestseller {
+    background: #ff4d4d;
+    color: white;
+}
+
+.highlight {
+    border: 2px solid gold;
+    padding: 15px;
+    border-radius: 10px;
+    background: rgba(212,175,55,0.05);
+}
+
+/* ================= LOGIN ================= */
+.center {
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#000;
+}
+
+.login-box {
+    background:white;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+    width:300px;
+}
+
+/* ================= DASHBOARD ================= */
+.dashboard {
+    padding:20px;
+    background:#000;
+    color:white;
+    min-height:100vh;
+}
+
+/* TOPBAR */
+.topbar {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+/* ================= FORM ================= */
+.form {
+    background:#111;
+    padding:15px;
+    margin:20px 0;
+    border-radius:10px;
+}
+
+/* FIX INPUTS */
+.form input,
+.form select {
+    width:100%;
+    padding:10px;
+    margin:8px 0;
+    border-radius:5px;
+    border:none;
+}
+
+/* BUTTONS */
+button {
+    padding:8px 12px;
+    background:gold;
+    border:none;
+    cursor:pointer;
+    border-radius:5px;
+    margin:5px 5px 5px 0;
+}
+
+/* ================= DROP ZONE ================= */
+#dropZone {
+    border:2px dashed gold;
+    padding:20px;
+    text-align:center;
+    margin-top:10px;
+    border-radius:10px;
+}
+
+/* ================= CATEGORY BLOCK ================= */
+.category-block {
+    background:#111;
+    padding:15px;
+    margin:20px 0;
+    border-radius:10px;
+}
+
+/* CATEGORY HEADER */
+.category-block h3 {
+    margin-bottom:10px;
+}
+
+/* CATEGORY CONTROLS */
+.category-controls {
+    display:flex;
+    gap:10px;
+    margin-bottom:10px;
+}
+
+textarea {
+    width:100%;
+    padding:8px;
+    border-radius:5px;
+    border:none;
+    margin-top:5px;
+}
+
+/* ================= CARD GRID ================= */
+.card-grid {
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+    gap:15px;
+}
+
+/* ================= CARD ================= */
+.card {
+    background:#1a1a1a;
+    padding:10px;
+    border-radius:10px;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+/* IMAGE */
+.card img {
+    width:100%;
+    height:130px;
+    object-fit:cover;
+    border-radius:8px;
+}
+
+/* NO IMAGE */
+.no-img {
+    height:130px;
+    background:#333;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:8px;
+    font-size:12px;
+}
+
+/* FIX INPUT INSIDE CARD */
+.card input,
+.card select {
+    width:100%;
+    padding:6px;
+    border-radius:5px;
+    border:none;
+    font-size:12px;
+}
+
+
+/* ================= PREVIEW ================= */
+.category-title {
+    margin-top:20px;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.qr-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.qr-box {
+    background: #111;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid gold;
+}
+
+.footer {
+    background: #111;
+    color: white;
+    padding: 40px 20px 10px;
+    border-top: 1px solid rgba(212,175,55,0.3);
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.footer-section {
+    margin: 20px;
+}
+
+.footer h3, .footer h4 {
+    color: gold;
+    letter-spacing: 1px;
+}
+
+.footer-section p {
+    opacity: 0.8;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+/* ================= ADMIN FIX (SCOPED) ================= */
+
+.admin-panel .category-block {
+    background:#111;
+    padding:15px;
+    margin:20px 0;
+    border-radius:10px;
+}
+
+.admin-panel .category-controls {
+    display:flex;
+    gap:10px;
+    margin-bottom:10px;
+}
+
+.admin-panel .card-grid {
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+    gap:15px;
+}
+
+.admin-panel .card {
+    background:#1a1a1a;
+    padding:10px;
+    border-radius:10px;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+/* 🔥 CRITICAL FIX */
+.admin-panel .card input,
+.admin-panel .card select,
+.admin-panel textarea {
+    width:100%;
+    padding:6px;
+    border-radius:5px;
+    border:none;
+    font-size:12px;
+}
+
+/* IMAGE FIX */
+.admin-panel .card img {
+    width:100%;
+    height:120px;
+    object-fit:cover;
+    border-radius:8px;
+}
+
+/* BUTTON FIX */
+.admin-panel button {
+    padding:6px 10px;
+    font-size:12px;
+}
+
+/* PREVENT FRONTEND STYLE LEAK */
+.admin-panel .menu-item img {
+    display:block !important;
+}

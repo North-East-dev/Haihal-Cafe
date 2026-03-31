@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Haihal Admin</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+<!-- LOGIN -->
+<div id="loginBox" class="center">
+    <div class="login-box">
+        <h2>Haihal Admin</h2>
+        <input type="password" id="pass" placeholder="Password">
+        <button onclick="login()">Login</button>
+    </div>
+</div>
+
+<!-- DASHBOARD -->
+<div id="dashboard" style="display:none;" class="dashboard admin-panel">
+
+<div class="topbar">
+    <h2>Menu Manager</h2>
+    <button onclick="logout()">Logout</button>
+</div>
+
+<!-- QUICK ADD -->
+<div class="form">
+
+<h3>Quick Add Item</h3>
+
+<input id="category" placeholder="Category">
+<input id="name" placeholder="Item Name">
+<input id="price" placeholder="Price">
+<textarea id="description" placeholder="Description"></textarea>
+
+<select id="type">
+<option value="veg">Veg</option>
+<option value="non-veg">Non-Veg</option>
+</select>
+
+<input id="image" placeholder="Image URL">
+
+<button onclick="addItem()">Add Item</button>
+
+<div id="dropZone">Drop Image Here</div>
+<img id="preview" width="150">
+<button onclick="removeImage()">Remove Image</button>
+
+</div>
+
+<h3>Menu</h3>
+<div id="menu"></div>
+
+<button onclick="saveMenu()">💾 Save</button>
+
+</div>
+
+<!-- 🔥 FIREBASE FIRST -->
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-storage-compat.js"></script>
+
+<!-- THEN YOUR JS -->
+<script src="js/admin.js"></script>
+
+<script>
+const PASSWORD = "haihal123";
+
+function login(){
+    if(pass.value === PASSWORD){
+        loginBox.style.display = "none";
+        dashboard.style.display = "block";
+        loadMenu();
+    } else alert("Wrong password");
+}
+
+function logout(){
+    location.reload();
+}
+</script>
+
+</body>
+</html>
